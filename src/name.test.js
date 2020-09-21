@@ -1,7 +1,7 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import { render, screen } from '@testing-library/react';
 
+import Name from  './Name';
 import nameResponse from './__mock__/nameResponse.json';
 
 jest.spyOn(global, "fetch").mockImplementation(() => {
@@ -11,8 +11,9 @@ jest.spyOn(global, "fetch").mockImplementation(() => {
   })
 })
 
-test('renders my name', async () => {
-  const { findByText } = render(<App />);
-  const ele = await findByText(/mary yang/i);
+test('it renders my name', async () => {
+  render(<Name />)
+  const ele = await screen.findByText("Mary Yang")
+  screen.debug()
   expect(ele).toBeInTheDocument();
-});
+})
