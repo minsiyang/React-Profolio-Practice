@@ -8,7 +8,7 @@ class Repos extends Component {
 
   componentDidMount(){
     // const link = this.props.url
-    fetch("https://api.github.com/users/minsiyang/repos")
+    fetch("https://api.github.com/users/minsiyang/starred")
     .then(res => res.json())
     .then(data => this.setState({ repos: data}))
   }
@@ -17,7 +17,7 @@ class Repos extends Component {
       <div className="repos">
         {this.state.repos.map(repo => {
           return (
-            <p>{repo.full_name}</p>
+            <p><a href={repo.html_url} target="_blank" rel="noopener noreferrer">{repo.name}</a></p>
           )
         })}
       </div>
