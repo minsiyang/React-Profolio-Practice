@@ -13,7 +13,16 @@ jest.spyOn(global, "fetch").mockImplementation(() => {
 
 test('it renders my name', async () => {
   render(<Name />)
+  const link = await screen.findByText("https://github.com/maryyang")
   const ele = await screen.findByText("Mary Yang")
   screen.debug()
   expect(ele).toBeInTheDocument();
+  expect(link).toBeInTheDocument();
 })
+
+test('it renders my image', async () => {
+  render(<Name />)
+  const img = await screen.findByAltText("Minsi Yang")
+  expect(img).toBeInTheDocument();
+})
+
