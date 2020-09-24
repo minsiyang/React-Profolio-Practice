@@ -11,6 +11,7 @@ class Repos extends Component {
     fetch("https://api.github.com/users/minsiyang/starred")
     .then(res => res.json())
     .then(data => this.setState({ repos: data}))
+    .catch(e => console.log(e))
   }
   render() {
     return(

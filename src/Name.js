@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Details from './Details';
-import Repos from './Repos';
+// import Repos from './Repos';
 
 class Name extends Component {
   constructor(props) {
@@ -11,13 +11,7 @@ class Name extends Component {
   }
 
     componentDidMount() {
-      const options = {
-        "headers": {
-          "Authorization": "token e1838b253912a5fd064f0be0427360c17c09b410",
-          "Accept": "application/vnd.github.v3+json"
-        }
-      }
-      fetch("https://api.github.com/users/minsiyang", options)
+      fetch("https://api.github.com/users/minsiyang")
       .then(res => res.json())
       .then(data => this.setState({ myData: data }))
     }
@@ -28,7 +22,7 @@ class Name extends Component {
           <p>{this.state.myData.name}</p>
           <a href={this.state.myData.html_url}>{this.state.myData.html_url}</a>
           <Details location={this.state.myData.location} followers={this.state.myData.followers} />
-          <Repos url={this.state.myData.repos_url} />
+          {/* <Repos /> */}
         </div>
       )
     }
