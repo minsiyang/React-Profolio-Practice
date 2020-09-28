@@ -20,9 +20,9 @@ test('it renders my name', async () => {
   expect(link).toBeInTheDocument();
 })
 
-// test('it renders my image', async () => {
-//   render(<Name />)
-//   const img = await screen.findByAltText("Minsi Yang")
-//   expect(img).toBeInTheDocument();
-// })
+test('it renders my image', async () => {
+  render(<Name />)
+  const img = await screen.findByAltText("Minsi Yang")
+  expect(img).toBeInTheDocument();
+})
 

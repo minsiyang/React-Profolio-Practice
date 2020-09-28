@@ -16,9 +16,9 @@ class Repos extends Component {
   render() {
     return(
       <div className="repos">
-        {this.state.repos.map(repo => {
+        {this.state.repos.map((repo, index) => {
           return (
-            <p><a href={repo.html_url} target="_blank" rel="noopener noreferrer">{repo.name}</a></p>
+            <p key={index}><a href={repo.html_url} target="_blank" rel="noopener noreferrer">{repo.name}</a></p>
           )
         })}
       </div>
