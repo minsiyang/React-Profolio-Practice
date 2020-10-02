@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 
 import nameResponse from './__mock__/nameResponse.json';
+import ReposResponse from './__mock__/ReposResponse.json';
 
 jest.spyOn(global, "fetch").mockImplementation(() => {
   return Promise.resolve({
@@ -10,8 +11,6 @@ jest.spyOn(global, "fetch").mockImplementation(() => {
       Promise.resolve(nameResponse)
   })
 })
-
-import ReposResponse from './__mock__/ReposResponse.json';
 
 jest.spyOn(global, 'fetch').mockImplementation(() => {
   return Promise.resolve({
@@ -27,7 +26,7 @@ test('renders my name', async () => {
 });
 
 test('it renders the list of the repos', async () => {
-  render(<Repos />)
+  render(<App />)
   const project1 = await screen.findByText("React-todolist")
   expect(project1).toBeInTheDocument();
 })
